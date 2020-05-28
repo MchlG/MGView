@@ -8,7 +8,16 @@
 
 import UIKit
 
-public extension UILabel {
+public protocol UILabelCurryable {
+    func text(_ t: String) -> Self
+    func textColor(_ color: UIColor) -> Self
+    func font(_ f: UIFont) -> Self
+    func alignment(_ a: NSTextAlignment) -> Self
+    func numberOfLines(_ n: Int) -> Self
+    
+}
+
+public extension UILabelCurryable where Self: UILabel {
     
     @discardableResult
     func text(_ t: String) -> Self {
@@ -41,3 +50,6 @@ public extension UILabel {
     }
 
 }
+
+
+extension UILabel: UILabelCurryable {}

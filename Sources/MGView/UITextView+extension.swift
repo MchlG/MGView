@@ -7,7 +7,14 @@
 
 import UIKit
 
-public extension UITextView {
+public protocol UITextViewCurryable {
+    func text(_ t: String) -> Self
+    func textColor(_ color: UIColor) -> Self
+    func font(_ f: UIFont) -> Self
+    func alignment(_ a: NSTextAlignment) -> Self
+}
+
+public extension UITextViewCurryable where Self: UITextView {
     
     @discardableResult
     func text(_ t: String) -> Self {
@@ -34,3 +41,5 @@ public extension UITextView {
     }
 
 }
+
+extension UITextView: UITextViewCurryable {}

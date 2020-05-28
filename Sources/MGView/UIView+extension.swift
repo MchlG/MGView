@@ -8,8 +8,6 @@
 
 import UIKit
 
-extension UIView: UIViewable {}
-
 /**
 Some useful helpers on UIView. By implementing as a protocol+extension , we can override these methods in conforming UIView subclasses. If we wrote these methods directly on an extension of UIView then that wouldnt be allowed.
 */
@@ -100,6 +98,79 @@ public extension UIViewable where Self: UIView {
         self.bottomAnchor.constraint(equalTo: self.superview!.safeAreaLayoutGuide.bottomAnchor).isActive = true
         self.rightAnchor.constraint(equalTo: self.superview!.safeAreaLayoutGuide.rightAnchor).isActive = true
         self.leftAnchor.constraint(equalTo: self.superview!.safeAreaLayoutGuide.leftAnchor).isActive = true
+    }
+    
+}
+
+
+extension UIView: UIViewable {}
+
+
+
+
+
+
+// MARK: - Loading spinners +
+public extension UIView {
+    
+    static let spinnnerTag: Int = 92836
+    static let dimmerTag: Int = 81725
+    
+    func showLoadingSpinner(color: UIColor, withDimmer: Bool = true, style: UIActivityIndicatorView.Style = .large) {
+        
+        DispatchQueue.main.async { [weak self] in
+            
+            self?.isUserInteractionEnabled = false
+            
+            let dimView: UIView = UIView()
+                .autoResizingOff()
+                .backgroundColor(UIColor.black.withAlphaComponent(0.6))
+            dimView.tag = UIView.dimmerTag
+            
+            let spinner = UIActivityIndicatorView()
+                            .autoResizingOff()
+                            .backgroundColor(.clear)
+            
+            spinner.style = style
+            spinner.color = color
+            spinner.tag = UIView.spinnnerTag
+            
+            self?.addSubview(dimView)
+            self?.addSubview(spinner)
+            self?.bringSubviewToFront(spinner)
+            
+            dimView.topAnchor.constraint(equalTo: dimView.superview!.topAnchor).isActive = true
+            dimView.leftAnchor.constraint(equalTo: dimView.superview!.leftAnchor).isActive = true
+            dimView.rightAnchor.constraint(equalTo: dimView.superview!.rightAnchor).isActive = true
+            dimView.bottomAnchor.constraint(equalTo: dimView.superview!.bottomAnchor).isActive = true
+            
+            spinner.heightAnchor.constraint(equalToConstant: 42).isActive = true
+            spinner.widthAnchor.constraint(equalTo: spinner.heightAnchor).isActive = true
+            spinner.centerXAnchor.constraint(equalTo: spinner.superview!.centerXAnchor).isActive = true
+            spinner.centerYAnchor.constraint(equalTo: spinner.superview!.centerYAnchor).isActive = true
+            
+            spinner.startAnimating()
+                
+        }
+        
+    }
+    
+    func hideLoadingSpinner() {
+        
+        DispatchQueue.main.async { [weak self] in
+            
+            self?.isUserInteractionEnabled = true
+            
+            if let spinner = self?.viewWithTag(UIView.spinnnerTag) as? UIActivityIndicatorView {
+                spinner.stopAnimating()
+                spinner.removeFromSuperview()
+            }
+            if let v = self?.viewWithTag(UIView.dimmerTag) {
+                v.removeFromSuperview()
+            }
+                
+        }
+        
     }
     
 }

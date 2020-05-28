@@ -7,7 +7,11 @@
 
 import UIKit
 
-public extension UITableView {
+public protocol UITableViewCurryable {
+    func separatorStyle(_ s: UITableViewCell.SeparatorStyle) -> Self
+}
+
+public extension UITableViewCurryable where Self: UITableView {
     
     @discardableResult
     func separatorStyle(_ s: UITableViewCell.SeparatorStyle) -> Self {
@@ -16,6 +20,8 @@ public extension UITableView {
     }
     
 }
+
+extension UITableView: UITableViewCurryable {}
 
 
 
