@@ -66,6 +66,12 @@ public extension ButtonCurryable where Self: UIButton {
         return self
     }
     
+    @discardableResult
+    func imageEdgeInsets(_ i: UIEdgeInsets)-> Self {
+        self.imageEdgeInsets = i
+        return self
+    }
+    
 }
 
 
