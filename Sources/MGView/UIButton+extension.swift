@@ -8,7 +8,19 @@
 
 import UIKit
 
-public protocol ButtonCurryable {}
+extension UIButton: ButtonCurryable {}
+
+public protocol ButtonCurryable {
+    
+    func text(_ t: String, state: UIControl.State)-> Self
+    func textColor(_ c: UIColor, state: UIControl.State) -> Self
+    func font(_ f: UIFont)-> Self
+    func attributedText(_ t: NSAttributedString, state: UIControl.State)-> Self
+    func image(_ i: UIImage?, state: UIControl.State)-> Self
+    func backgroundImage(_ i: UIImage?, state: UIControl.State)-> Self
+    func enabled(_ e: Bool)-> Self
+    
+}
 
 public extension ButtonCurryable where Self: UIButton {
     
