@@ -8,7 +8,6 @@
 
 import UIKit
 
-extension UIButton: ButtonCurryable {}
 
 public protocol ButtonCurryable {
     
@@ -75,4 +74,4 @@ public extension ButtonCurryable where Self: UIButton {
 }
 
 
-
+extension UIButton: ButtonCurryable {}

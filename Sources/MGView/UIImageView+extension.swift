@@ -8,7 +8,12 @@
 
 import UIKit
 
-public extension UIImageView {
+public protocol UIImageViewCurryable {
+    func image(_ i: UIImage?)-> Self
+    func contentMode(_ m: UIView.ContentMode)-> Self
+}
+
+public extension UIImageViewCurryable where Self: UIImageView {
     
     @discardableResult
     func image(_ i: UIImage?)-> Self {
@@ -25,3 +30,4 @@ public extension UIImageView {
 }
 
 
+extension UIImageView: UIImageViewCurryable {}
