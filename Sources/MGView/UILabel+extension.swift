@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol UILabelCurryable {
+public protocol UILabelable {
     func text(_ t: String) -> Self
     func textColor(_ color: UIColor) -> Self
     func font(_ f: UIFont) -> Self
@@ -17,7 +17,7 @@ public protocol UILabelCurryable {
     
 }
 
-public extension UILabelCurryable where Self: UILabel {
+public extension UILabelable where Self: UILabel {
     
     @discardableResult
     func text(_ t: String) -> Self {
@@ -52,4 +52,4 @@ public extension UILabelCurryable where Self: UILabel {
 }
 
 
-extension UILabel: UILabelCurryable {}
+extension UILabel: UILabelable {}

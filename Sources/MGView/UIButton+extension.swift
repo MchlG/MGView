@@ -9,7 +9,7 @@
 import UIKit
 
 
-public protocol ButtonCurryable {
+public protocol Buttonable {
     
     func text(_ t: String, state: UIControl.State)-> Self
     func textColor(_ c: UIColor, state: UIControl.State) -> Self
@@ -21,7 +21,7 @@ public protocol ButtonCurryable {
     
 }
 
-public extension ButtonCurryable where Self: UIButton {
+public extension Buttonable where Self: UIButton {
     
     @discardableResult
     func text(_ t: String, state: UIControl.State = .normal)-> Self {
@@ -74,4 +74,4 @@ public extension ButtonCurryable where Self: UIButton {
 }
 
 
-extension UIButton: ButtonCurryable {}
+extension UIButton: Buttonable {}

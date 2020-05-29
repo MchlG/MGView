@@ -9,7 +9,7 @@
 import UIKit
 
 /**
-Some useful helpers on UIView. By implementing as a protocol+extension , we can override these methods in conforming UIView subclasses. If we wrote these methods directly on an extension of UIView then that wouldnt be allowed.
+Some useful helpers for UIViews. By creating custom protocol+extension and then making UIView conform, we can override these methods in UIView subclasses. If we wrote these methods directly on an extension of UIView then that wouldnt be allowed.
 */
 public protocol UIViewable {
     //always return Self so we can use with UIView subclasses

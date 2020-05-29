@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol UITextFieldCurryable {
+public protocol UITextFieldable {
     func attributedPlaceholder(_ str: NSAttributedString) -> Self
     func placeholder(_ p: String) -> Self
     func font(_ f: UIFont) -> Self
@@ -18,7 +18,7 @@ public protocol UITextFieldCurryable {
     func isSecureTextEntry(_ isSecure: Bool) -> Self
 }
 
-public extension UITextFieldCurryable where Self: UITextField {
+public extension UITextFieldable where Self: UITextField {
 
     @discardableResult
     func attributedPlaceholder(_ str: NSAttributedString) -> Self {
@@ -65,4 +65,4 @@ public extension UITextFieldCurryable where Self: UITextField {
 
 
 
-extension UITextField: UITextFieldCurryable {}
+extension UITextField: UITextFieldable {}

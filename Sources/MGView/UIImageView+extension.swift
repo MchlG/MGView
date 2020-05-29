@@ -8,12 +8,12 @@
 
 import UIKit
 
-public protocol UIImageViewCurryable {
+public protocol UIImageViewable {
     func image(_ i: UIImage?)-> Self
     func contentMode(_ m: UIView.ContentMode)-> Self
 }
 
-public extension UIImageViewCurryable where Self: UIImageView {
+public extension UIImageViewable where Self: UIImageView {
     
     @discardableResult
     func image(_ i: UIImage?)-> Self {
@@ -30,4 +30,4 @@ public extension UIImageViewCurryable where Self: UIImageView {
 }
 
 
-extension UIImageView: UIImageViewCurryable {}
+extension UIImageView: UIImageViewable {}

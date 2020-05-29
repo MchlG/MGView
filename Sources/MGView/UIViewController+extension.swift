@@ -38,6 +38,19 @@ public extension UIViewController {
         }
     }
     
+    func showErrorAlert(withTitle title: String = "Oops", message: String, _ okActionCallback: (()-> Void)? = nil) {
+        DispatchQueue.main.async { [weak self] in
+            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            
+            let okAction = UIAlertAction(title: "Ok", style: .default, handler: { _ in
+                okActionCallback?()
+            })
+                
+            alert.addAction(okAction)
+            self?.present(alert, animated: true, completion: nil)
+        }
+    }
+    
     func showAlertConfirm(withTitle title: String, message: String? , isCancel:Bool = false, completion: (() -> Void)? = nil){
         
         DispatchQueue.main.async { [weak self] in
