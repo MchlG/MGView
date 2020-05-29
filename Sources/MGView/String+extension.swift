@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol StringCurryable {
+public protocol StringCurryable {
     func color(_ c: UIColor) -> NSAttributedString
     func font(_ f: UIFont) -> NSAttributedString
     func underlined(_ u: Bool, _ style: NSUnderlineStyle) -> NSAttributedString
@@ -17,7 +17,7 @@ protocol StringCurryable {
     func truncated(_ t: Bool, _ lineBreakMode: NSLineBreakMode) -> NSAttributedString
 }
 
-extension StringCurryable where Self == String {
+public extension StringCurryable where Self == String {
 
     func color(_ c: UIColor) -> NSAttributedString {
         return NSAttributedString(string: self).color(c)
