@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "MGView",
     platforms: [
-        // Only add support for iOS 11 and up.
+        // Only add support for iOS 13 and up.
         .iOS(.v13)
     ],
     products: [

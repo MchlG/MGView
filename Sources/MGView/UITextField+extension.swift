@@ -57,6 +57,18 @@ public extension UITextFieldable where Self: UITextField {
     }
     
     @discardableResult
+    func text(_ t: String) -> Self {
+        self.text = t
+        return self
+    }
+    
+    @discardableResult
+    func attributedText(_ t: NSAttributedString) -> Self {
+        self.attributedText = t
+        return self
+    }
+    
+    @discardableResult
     func isSecureTextEntry(_ isSecure: Bool = true) -> Self {
         self.isSecureTextEntry = isSecure
         return self
