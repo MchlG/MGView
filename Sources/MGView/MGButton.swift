@@ -18,7 +18,7 @@ public class MGButton: UIButton {
     
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
-    override var isHighlighted: Bool {
+    override public var isHighlighted: Bool {
         didSet {
             UIView.animate(withDuration: 0.15, delay: 0.0, options: [.beginFromCurrentState, .allowUserInteraction], animations: {
                 self.alpha = self.isHighlighted ? 0.25 : 1
