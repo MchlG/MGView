@@ -7,9 +7,9 @@
 
 import UIKit
 
-class MGButton: UIButton {
+public class MGButton: UIButton {
     
-    var touchUp: (()-> Void)?
+    public var touchUp: (()-> Void)?
     
     override init(frame: CGRect) {
         super.init(frame: frame)

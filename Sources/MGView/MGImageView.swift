@@ -7,9 +7,9 @@
 
 import UIKit
 
-class ECMImageView: UIImageView {
+public class ECMImageView: UIImageView {
     
-    var tapped: (()-> Void)?
+    public var tapped: (()-> Void)?
     
     init() {
         super.init(frame: .zero)

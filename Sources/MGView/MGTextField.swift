@@ -7,9 +7,9 @@
 
 import UIKit
 
-class ECMTextField: UITextField {
+public class ECMTextField: UITextField {
     
-    var editingChangedCallback: ((String?)->Void)? {
+    public var editingChangedCallback: ((String?)->Void)? {
         didSet {
             if editingChangedCallback != nil {
                 self.addTarget(self, action: #selector(editingDidChange), for: .editingChanged)
