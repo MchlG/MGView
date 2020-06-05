@@ -36,6 +36,12 @@ public extension UIViewable where Self: UIView {
     }
     
     @discardableResult
+    func isUserInteractionEnabled(_ b: Bool) -> Self {
+        self.isUserInteractionEnabled = b
+        return self
+    }
+    
+    @discardableResult
     func backgroundColor(_ c: UIColor) -> Self {
         self.backgroundColor = c
         return self
