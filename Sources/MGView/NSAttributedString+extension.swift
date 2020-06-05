@@ -18,6 +18,16 @@ public protocol NSAttributedStringable {
     func truncated(_ t: Bool, _ lineBreakMode: NSLineBreakMode) -> NSAttributedString
 }
 
+public extension NSAttributedString {
+    
+    static func +(lhs: NSAttributedString, rhs: NSAttributedString) -> NSMutableAttributedString {
+        let mutable = NSMutableAttributedString(attributedString: lhs)
+        mutable.append(rhs)
+        return mutable
+    }
+    
+}
+
 public extension NSAttributedStringable where Self: NSAttributedString {
     
     @discardableResult
