@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class ECMTextField: UITextField {
+public class MGTextField: UITextField {
     
     public var editingChangedCallback: ((String?)->Void)? {
         didSet {

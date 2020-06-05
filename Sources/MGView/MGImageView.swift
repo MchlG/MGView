@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class ECMImageView: UIImageView {
+public class MGImageView: UIImageView {
     
     public var tapped: (()-> Void)?
     
