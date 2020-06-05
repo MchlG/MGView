@@ -72,6 +72,27 @@ public extension UIViewController {
         
     }
     
+    func showTextFieldAlert(withTitle title: String, message: String, placeholder: String, doneCallback: @escaping ((String) -> Void)) {
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addTextField { (textField : UITextField!) -> Void in
+            textField.placeholder = placeholder
+        }
+        
+        let doneAction = UIAlertAction(title: "Create", style: .default) { _ in
+            let firstTextField = alert.textFields![0] as UITextField
+            doneCallback(firstTextField.text ?? "")
+        }
+        
+        let cancelAction = UIAlertAction(title: "cancel", style: .destructive, handler: nil)
+
+        alert.addAction(doneAction)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true, completion: nil)
+        
+    }
+    
 }
 
 
