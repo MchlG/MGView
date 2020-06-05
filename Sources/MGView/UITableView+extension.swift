@@ -19,6 +19,13 @@ public extension UITableViewable where Self: UITableView {
         return self
     }
     
+    @discardableResult
+    func keyboardDismissMode(_ m: UIScrollView.KeyboardDismissMode)-> Self {
+        self.keyboardDismissMode = m
+        return self
+    }
+
+    
 }
 
 extension UITableView: UITableViewable {}
