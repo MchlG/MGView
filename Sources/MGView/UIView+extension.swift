@@ -93,17 +93,43 @@ public extension UIViewable where Self: UIView {
     }
     
     func pinToSuper() {
-        self.topAnchor.constraint(equalTo: self.superview!.topAnchor).isActive = true
-        self.bottomAnchor.constraint(equalTo: self.superview!.bottomAnchor).isActive = true
-        self.rightAnchor.constraint(equalTo: self.superview!.rightAnchor).isActive = true
-        self.leftAnchor.constraint(equalTo: self.superview!.leftAnchor).isActive = true
+        
+        self.topAnchor
+            .constraint(equalTo: self.superview!.topAnchor)
+            .isActive = true
+        
+        self.bottomAnchor
+            .constraint(equalTo: self.superview!.bottomAnchor)
+            .isActive = true
+        
+        self.rightAnchor
+            .constraint(equalTo: self.superview!.rightAnchor)
+            .isActive = true
+        
+        self.leftAnchor
+            .constraint(equalTo: self.superview!.leftAnchor)
+            .isActive = true
+        
     }
     
     func pinToSuperSafe() {
-        self.topAnchor.constraint(equalTo: self.superview!.safeAreaLayoutGuide.topAnchor).isActive = true
-        self.bottomAnchor.constraint(equalTo: self.superview!.safeAreaLayoutGuide.bottomAnchor).isActive = true
-        self.rightAnchor.constraint(equalTo: self.superview!.safeAreaLayoutGuide.rightAnchor).isActive = true
-        self.leftAnchor.constraint(equalTo: self.superview!.safeAreaLayoutGuide.leftAnchor).isActive = true
+        
+        self.topAnchor
+            .constraint(equalTo: self.superview!.safeAreaLayoutGuide.topAnchor)
+            .isActive = true
+        
+        self.bottomAnchor
+            .constraint(equalTo: self.superview!.safeAreaLayoutGuide.bottomAnchor)
+            .isActive = true
+        
+        self.rightAnchor
+            .constraint(equalTo: self.superview!.safeAreaLayoutGuide.rightAnchor)
+            .isActive = true
+        
+        self.leftAnchor
+            .constraint(equalTo: self.superview!.safeAreaLayoutGuide.leftAnchor)
+            .isActive = true
+        
     }
     
 }
@@ -122,11 +148,11 @@ public extension UIView {
     static let spinnnerTag: Int = 92836
     static let dimmerTag: Int = 81725
     
-    func showLoadingSpinner(color: UIColor, withDimmer: Bool = true, style: UIActivityIndicatorView.Style = .large) {
+    func showLoadingSpinner(color: UIColor, withDimmer: Bool = true, style: UIActivityIndicatorView.Style = .large, isUserInteractionEnabled: Bool = false) {
         
         DispatchQueue.main.async { [weak self] in
             
-            self?.isUserInteractionEnabled = false
+            self?.isUserInteractionEnabled = isUserInteractionEnabled
             
             let dimView: UIView = UIView()
                 .autoResizingOff()
