@@ -158,6 +158,7 @@ public extension UIView {
                 .autoResizingOff()
                 .backgroundColor(UIColor.black.withAlphaComponent(0.6))
             dimView.tag = UIView.dimmerTag
+            dimView.isHidden = !withDimmer
             
             let spinner = UIActivityIndicatorView()
                             .autoResizingOff()
