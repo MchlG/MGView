@@ -48,6 +48,18 @@ public extension UILabelable where Self: UILabel {
         self.numberOfLines = n
         return self
     }
+    
+    @discardableResult
+    func minimumScaleFactor(_ m: CGFloat) -> Self {
+        self.minimumScaleFactor = m
+        return self
+    }
+    
+    @discardableResult
+    func adjustsFontSizeToFitWidth(_ b: Bool) -> Self {
+        self.adjustsFontSizeToFitWidth = b
+        return self
+    }
 
 }
 
